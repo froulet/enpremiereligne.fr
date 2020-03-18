@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Helper;
 use App\MatchFinder\MatchFinder;
 use App\Model\MatchedNeeds;
+use App\Repository\HelperRepository;
 use App\Repository\HelpRequestRepository;
+use App\Statistics\StatisticsAggregator;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,6 +20,16 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class AdminController extends AbstractController
 {
+    /**
+     * @Route("/statistics", name="admin_statistics")
+     */
+    public function statistics(StatisticsAggregator $aggregator): Response
+    {
+        return $this->render('admin/statistics.html.twig', [
+            'statistics' => $aggregator,
+        ]);
+    }
+
     /**
      * @Route("/matches", name="admin_matches")
      */

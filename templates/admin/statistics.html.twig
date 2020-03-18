@@ -1,0 +1,8 @@
+{% extends '@EasyAdmin/default/layout.html.twig' %}
+
+{% block content_title 'Statistics' %}
+{% block content_footer_wrapper '' %}
+
+{% block main %}
+    {{ statistics.countTotalRequests }}
+{% endblock %}

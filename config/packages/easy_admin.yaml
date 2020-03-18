@@ -6,16 +6,19 @@ easy_admin:
             - { route: 'homepage', label: 'Back to the website', icon: 'home' }
             - { route: 'security_logout', label: 'Log out', icon: 'sign-out' }
 
-            - { label: 'Matchings' }
+            - { label: 'Matches' }
+            - { route: 'admin_statistics', label: 'Statistics', icon: 'chart-bar' }
             - { route: 'admin_matches', label: 'Matches', icon: 'check' }
             - { route: 'admin_match_history', label: 'History', icon: 'history' }
+
+            - { label: 'Raw data' }
             - { entity: 'Helper', label: 'Helpers', icon: 'users' }
             - { entity: 'HelpRequest', label: 'Help requests', icon: 'handshake-o' }
 
     entities:
         Helper:
             class: App\Entity\Helper
-            disabled_actions: ['show', 'new', 'edit']
+            disabled_actions: ['show', 'new', 'edit', 'delete']
             list:
                 title: Helpers
                 max_results: 100
@@ -30,7 +33,7 @@ easy_admin:
 
         HelpRequest:
             class: App\Entity\HelpRequest
-            disabled_actions: ['show', 'new', 'edit']
+            disabled_actions: ['show', 'new', 'edit', 'delete']
             list:
                 title: Help requests
                 max_results: 100
